@@ -1,0 +1,356 @@
+.svg{ 
+    width: 100px;
+    height: 100px; 
+    margin-left: 20px;
+} 
+@keyframes logo{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+    }
+.svg:hover{
+    filter: drop-shadow(3px 5px 3px rgba(0, 0, 0, 0.416));
+    animation: logo 6s linear infinite;
+}
+.col-md-4{
+    margin-bottom: 40px;
+}
+nav{
+    font-family: 'Caveat', cursive;
+    font-family: 'Edu TAS Beginner', cursive;
+    text-align: right;
+}
+.dropbtn {
+    background-color: transparent;
+    color: darkgreen;
+    border: none;
+  }
+  
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(241, 241, 241, 0.772);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+  .dropdown-content a:hover {background-color: rgba(122, 248, 198, 0.543);}
+  .dropdown:hover .dropdown-content {display: block;}
+  .dropdown:hover .dropbtn {background-color: rgba(122, 248, 198, 0.543);}
+
+  .top-nav {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #FFF;
+    height: 50px;
+    padding: 1em;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu > li {
+    margin: 0 1rem;
+    overflow: hidden;
+  }
+  
+  .menu-button-container {
+    display: none;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #menu-toggle {
+    display: none;
+  }
+  
+  .menu-button,
+  .menu-button::before,
+  .menu-button::after {
+    display: block;
+    background-color: darkgreen;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+    right:0;
+  }
+  
+  .menu-button::before {
+    content: '';
+    margin-top: -8px;
+  }
+  
+  .menu-button::after {
+    content: '';
+    margin-top: 8px;
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button::before {
+    margin-top: 0px;
+    transform: rotate(405deg);
+  }
+  #menu-toggle:checked + .menu-button-container .menu-button {
+    background: rgba(241, 241, 241, 0.772);
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button::after {
+    margin-top: 0px;
+    transform: rotate(-405deg);
+  }
+  
+#footer-text{
+    font-family: 'Caveat', cursive;
+    font-family: 'Edu TAS Beginner', cursive;
+    text-align: left;
+}
+div{
+    font-family: 'Caveat', cursive;
+    font-family: 'Edu TAS Beginner', cursive;
+}
+#myImage img{
+    width:100vw;
+    position: fixed;
+    z-index: -1000;
+    object-fit: cover;
+    display: none;
+}
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1000;
+
+}
+.content1 {
+    position:absolute;
+    top:0;
+    background: rgba(241, 241, 241, 0.772);
+    color: darkgreen;
+    width: 100%;
+    padding: 2px;
+    z-index: 1000;
+}
+.content2 {
+    font-size:9vw;
+    font-family: 'Caveat', cursive;
+    font-family: 'Edu TAS Beginner', cursive;
+    position:absolute;
+    top:0;
+    color: #ffffff93;
+    width: 100%;
+    padding: 6px;
+    margin: 10px;
+    text-align: center;
+    filter: drop-shadow(2px 5px 3px rgba(0, 0, 0, 0.416));
+}
+a:hover {
+    background-color: rgba(122, 248, 198, 0.543);
+    filter: drop-shadow(2px 5px 3px rgba(0, 0, 0, 0.416));
+  }
+.card{
+    height:100%; 
+    margin-left:3vw; 
+}
+
+@keyframes card1{
+    100%{filter: none;}
+    }
+@keyframes card2{
+    0%{transform: translate(0px, 0px);}
+    25%{transform: translate(100px, 0px);}
+    50%{transform: translate(80px, 40px);}
+    75%{transform: translate(-90px, -40px);}
+    100%{transform: translate(-80px, 40px);}
+    }
+
+.card:hover{
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.429);
+    height: 100%;
+    .card1-img-top{
+        animation: card1 4s;
+        animation-fill-mode: forwards;
+    }
+    .card2-img-top{
+        clip-path: circle(20%);
+        animation: card2 5s linear 0.3s infinite alternate;
+    }
+    .card3-img-top{
+        clip-path: polygon(31% 10%, 15% 32%, 30% 50%, 15% 68%, 31% 93%, 50% 70%, 68% 95%, 85% 74%, 68% 54%, 85% 36%, 67% 10%, 49% 33%);
+        animation: logo 6s infinite;
+    }
+}
+.btn{
+    margin-left: 65%;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.send{
+    margin-left: 45%;
+    margin-right: 40%;
+    border:transparent;
+    background-color: transparent;
+}
+.send:hover {
+    border:transparent;
+    background-color: rgba(122, 248, 198, 0.543);
+    filter: drop-shadow(2px 5px 3px rgba(0, 0, 0, 0.416));
+  }
+.card1-img-top{
+    filter:grayscale(100%);
+}
+footer {
+    font-family: 'Caveat', cursive;
+    font-family: 'Edu TAS Beginner', cursive;
+    position:relative;
+    text-align: center;
+    width:100%;
+    padding: 3px;
+    background:rgb(237, 237, 237);
+ }
+.heading{
+    font-family: 'Caveat', cursive;
+    font-family: 'Edu TAS Beginner', cursive;
+    text-align: center;
+    filter: drop-shadow(2px 5px 3px rgba(0, 0, 0, 0.416));
+}
+textarea{
+    width: 100%;
+    height:100px;
+}
+@keyframes form{
+    0%{background-color: rgb(199, 251, 255);}
+    20%{background-color: rgb(178, 207, 250);}
+    40%{background-color: rgb(244, 204, 253);}
+    60%{background-color: rgb(253, 222, 204);}
+    80%{background-color: rgb(222, 253, 204);}
+    100%{background-color: rgb(204, 253, 238);}
+    }
+.infoPage{
+    border-radius: 30px 30px 30px 30px;
+    text-align: left;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 10px;
+    animation: form 30s infinite;
+    color: darkgreen;
+}
+.resizeTextbox {
+    width: 100%;
+}
+.infoPage:hover{
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.429);
+}
+.tour-card-image{
+    width:60vw;
+    height:100%;
+    margin-left:3vw; 
+    margin-bottom: 30px;
+}
+.tour-card{
+    width:30vw;
+    height:100%;
+    margin-right: 3vw;
+    margin-bottom: 30px;
+    background: rgb(255, 255, 255);
+    filter: drop-shadow(2px 5px 3px rgba(0, 0, 0, 0.416));
+}
+
+.flex-container {
+    display: flex;
+    margin-bottom: 3vw;
+  }
+
+@media only screen and (max-width: 600px) {
+#myVideo{
+    display: none;
+}
+#myImage img{
+    display: unset;
+}
+nav{
+    display: none;
+}
+.top-nav{
+    display: flex;
+}
+.menu-button-container {
+    display: flex;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 104px;
+    right: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #menu-toggle:checked ~ .menu li {
+    border: 1px solid #0000005c;
+    height: 2.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.231, 1, 0.324, 1);
+  }
+  .menu > li {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    color: darkgreen;
+    background-color: rgba(241, 241, 241, 0.772);;
+  }
+  .menu > li:not(:last-child) {
+    border-bottom: 1px solid #44444472;
+  }
+
+.flex-container{
+    display: block;
+}
+.tour-card-image, .tour-card{
+    width: 100%;
+}
+.tour-card-image{
+    margin-bottom: 0;
+}
+
+}
+
+
+
+
