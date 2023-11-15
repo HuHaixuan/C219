@@ -344,6 +344,8 @@ nav{
 }
 .tour-card-image, .tour-card{
     width: 100%;
+    margin-left: 3vw;
+    margin-right: 3vw;
 }
 .tour-card-image{
     margin-bottom: 0;
