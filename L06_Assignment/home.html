@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Bootstrap Hero</title>
+    <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+      }
+      li {
+        float: left;
+      }
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      li a:hover {
+        background-color: #ddd;
+      }
+      .icon{
+        float: right;
+        text-align: center;
+      }
+      .topnav {
+        overflow: hidden;
+        background-color: #333;
+        position: relative;
+      display: none;
+      }
+    .topnav #myLinks {
+      background-color: #333;
+      display: none;
+    }
+    .topnav a {
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      display: block;
+    }
+    .topnav a.icon {
+      background: black;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    .active {
+      background-color: #000000;
+      color: white;
+    }
+    .pb-3{
+      color: white;
+    }
+    .bg{
+      background-color: #333;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      gap: 10px;
+      margin: 2px;
+    }
+    .item1 {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    text-align: right;
+    padding-top:20%;
+    margin-left: 50%;
+    }
+    .item2 {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    text-align: right;
+    padding-top:20%;
+    margin-left: 58%;
+    }
+    .item3 {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    text-align: right;
+    padding-top:20%;
+    }
+    
+    .itemText{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    text-align: left;
+    padding-top: 10%;
+    margin-left: 20px;
+    }
+    .itemText1{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    text-align: left;
+    padding-top: 10%;
+    margin-left: 27px;
+    }
+    .itemText2{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    text-align: left;
+    padding-top: 10%;
+    }
+    footer{
+      color: white;
+      padding: 4%;
+    }
+    .end{
+      text-align: right;
+    }
+    a{
+      text-decoration: none;
+      color: white;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    a:hover{
+      background-color: #ddd;
+      color: black;
+    }
+
+      </style>
+</head>
+
+<body>
+    <ul>
+      <li><a class="active" href="#"><b>SOI Learning Portal</b></a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Contact</a></li>
+        <div class="search-container" style="padding: 14px 16px;">
+          <form action="#">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </ul>
+
+      <div class="topnav">
+        <a href="#" class="active">SOI Learning Portal</a>
+        <div id="myLinks">
+          <div class="search-container" style="padding: 14px 16px;">
+            <form action="#">
+              <input type="text" placeholder="Search.." name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+          <a href="#">About</a>
+          <a href="#">Courses</a>
+          <a href="#">Contact</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+
+      <div class="container-fluid shadow bg-info">
+        <div class="container" ><div class="row">
+          <div class="col-sm-7 pt-5">
+              <H2>Welcome to <br>SOI Learning Portal</H2>
+              <p>
+                  Expertly crafted courses that best fit your learning needs and preferences.
+              </p>
+              <button type="button" class="btn btn-dark">Browse Courses</button>
+              <button type="button" class="btn btn-light">Be An Instructor</button>
+          </div>
+          <div class="col-sm-5" style="text-align: center;">
+            <img src="img/person.png" alt="person" style="height: 45vh;width: 36vh">
+          </div>
+      </div>
+      </div> 
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="grid-container">
+          <div class="item1"><i class="fa fa-book" 
+          style="font-size:36px; 
+            background-color: #333;
+            border-radius: 50%; 
+            color: white;
+            padding: 15px;
+            padding-left: 17px;
+            padding-right: 17px;"></i></p></div>
+          <div class="itemText"><b>158 online courses</b><br>Enjoy a variety of fresh topics</div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="grid-container">
+          <div class="item2"><i class="fa fa-user"
+          style="font-size:36px; 
+            background-color: #333;
+            border-radius: 50%; 
+            color: white;
+            padding: 15px;
+            padding-left: 20px;
+            padding-right: 20px;"></i></p></div>
+          <div class="itemText1"><b>Expert instruction</b><br>Find the right instructor for you</div>
+        </div>
+      </div>
+      <div class="col-sm-4 text-center">
+        <div class="grid-container">
+          <div class="item3"><i class="fa fa-hourglass-2"
+          style="font-size:36px; 
+            background-color: #333;
+            border-radius: 50%; 
+            color: white;
+            padding: 15px;
+            padding-left: 17px;
+            padding-right: 17px;"></i></p></div>
+          <div class="itemText2"><b>Lifetime access</b><br>Learn on your schedule</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="bg">
+      <div class="container pb-5">
+        <H3 class="pb-3 pt-5">Featured Courses</H3>
+        <div class="row">
+        <div class="col-sm-3">
+          <div class="card m1" style="width: 16rem;">
+            <img src="img/picture1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <div class="card-footer">
+              Card footer
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card m1" style="width: 16rem;">
+            <img src="img/picture2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <div class="card-footer">
+              Card footer
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 16rem;">
+            <img src="img/picture3.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <div class="card-footer">
+              Card footer
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 16rem;">
+            <img src="img/picture4.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <div class="card-footer">
+              Card footer
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        <footer>
+          <hr>
+          <div class="row">
+            <div class="col-sm-6">
+        2021 SOI Learning Portal. All Rights Reserved.
+        </div>
+        <div class="col-sm-6">
+        <div class="end">
+          <a href="#" >Privacy</a>
+          <a href="#" >Home</a>
+          <a href="#" >About</a>
+          <a href="#" >Contact</a>
+          </div>
+        </div>
+      </div>
+        </footer>
+  
+      </div>
+    
+</body>
+<style>
+  @media only screen and (max-width: 600px) {
+    ul{
+      display: none;
+    }
+    .topnav{
+      display: unset;
+    }
+    .card{
+      margin-left: 22%;
+      margin-bottom: 3vw;
+    }
+    .pb-3{
+      margin-left: 21%;
+    }
+    footer{
+      text-align: center;
+    }
+    .end{
+      text-align: center;
+    }
+  }
+</style>
+<script>
+  function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+  </script>
+
+</html>
