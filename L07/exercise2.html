@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+</head>
+
+<body>
+    <form id="myForm">
+        <!-- Two text fields - Name and Email -->
+        Name: <input id="name" type="text" placeholder="Name" value=""><br><br>
+        Email: <input id="email" type="email" placeholder="Email" value=""><br><br>
+        <input type="radio" id="male" name="Gender" value="Male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="Gender" value="Female">
+        <label for="female">Female</label><br><br>
+        <!-- Submit button -->
+        <button type="button" onclick="myFunction()">Submit</button>
+    </form>
+
+    <!-- Display form data -->
+    <script src="js/jquery.min.js"></script>
+    <br>
+    <div id="details" style="display:none">
+        You entered:<br><br>
+    <div id="UseriputName"></div>
+    <div id="UseriputEmail"></div>
+    <div id="UseriputGender"></div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+            $("#details").fadeIn();
+            $("#details").css({"background-color": "lightgoldenrodyellow", "font-family":"Arial", "border": "1px solid grey","padding":"10px"});
+            $("#details").mouseover(function(){
+                $("#details").slideUp("slow");
+                });
+            });
+        });
+        // JavaScript to get and display form data
+        function myFunction() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var selectedGender = document.querySelector('input[name="Gender"]:checked').value;
+    
+            document.getElementById("UseriputName").innerHTML = name;
+            document.getElementById("UseriputEmail").innerHTML = email;
+            document.getElementById("UseriputGender").innerHTML = selectedGender;
+
+        }
+    </script>
+</body>
+
+</html>
