@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About Me</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .anime{margin-right:250px}
+            button{background-color: black; color:white;width: 100px;}
+        </style>
+    </head>
+    <body>
+        <div style="text-align: center">
+            <br><H2>About Me</H2><br>
+        </div>
+            
+            <div class="row">
+                <div class="col-6 bg-white text-black">
+                    <div style="text-align: right">
+                    <img src="img/me.jpg" alt="me" title="me" height="350" width="280"/>
+                    </div>
+                </div>
+                <div class="col-6 bg-white text-black">
+                    <H4 class="anime">Hu Haixuan</h4><br>
+                        <div class="anime"><b>Web Designer</b><br><br></div>
+                        <div class="anime">21 years old<br><br></div>
+                    <div class="anime">I am Hu Haixuan,born in China, Hunan. I am a year 2 student studying in Republic Polytechnic.I like to draw and game in my free time, it help me to relax myself and enjoy my time.<br></div>
+                    <div class="anime"><br>Believe in all things possible!!<br><br></div>
+                </div>
+                
+            </div><br>
+
+            <div class="row" style="text-align:center;margin: 3vw;">
+                <div class="col-4">
+                    <button type="button" class="Play">Play!</button>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="Pause">Pause!</button>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="Restart">Restart!</button>
+                </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+            <script>
+                var animation = anime.timeline({
+                    easing: 'easeOutExpo'
+                });
+                animation
+                .add({targets: "img",rotate: 360,duration: 2800,opacity: [0, 2]})
+                .add({targets: '.anime',translateX: 100,rotate: 180,delay: anime.stagger(200, {start: 200})},0)
+                .add({targets: '.anime',translateX:0,rotate: 360,delay: anime.stagger(300, {start: 400})});
+                document.querySelector('.Play').onclick = animation.play;
+                document.querySelector('.Pause').onclick = animation.pause;
+                document.querySelector('.Restart').onclick = animation.restart;
+                
+            </script>
+    </body>
+</html>
