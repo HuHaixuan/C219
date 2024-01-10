@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js</title>
+</head>
+
+<body>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <!-- Add the CDN link for Chart.js here -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Define chart labels
+        const labels = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June'
+        ];
+
+        // Set labels, colours and data
+        const data = {
+            labels: labels,
+            datasets: [{
+            label: 'My First Dataset',
+            backgroundColor: ['rgb(255, 99, 132)',
+                            'rgb(255, 159, 188)',
+                            'rgb(214, 159, 255)',
+                            'rgb(77, 129, 249)',
+                            'rgb(57, 243, 57)',
+                            'rgb(237, 243, 57)'],
+            data: [5, 10, 5, 2, 20, 30],
+            }]
+        };
+
+        // Configure chart
+        const config = {
+        type: 'pie',
+        data: data,
+        };
+
+        // Render chart in <canvas>
+            const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+            );
+
+    </script>
+</body>
+
+</html>
