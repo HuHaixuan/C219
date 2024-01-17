@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Covid-19 in Singapore</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+        <style>
+            #nav ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            }
+            #nav li {float: right;}
+            #nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+            #nav li a:hover {background-color: #111;}
+            .slide{padding-right: 50px;}
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); 
+                grid-gap: 10px;
+                padding: 10px;
+                height: 90vh;
+            }
+            .grid-container > div {text-align: left;padding: 30px;}
+            .grid-container-3 {display: grid;grid: 100px / auto auto auto;grid-gap: 10px;}
+            .grid-container5by2 {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                grid-template-rows: repeat(2, 1fr); 
+                grid-gap: 3px;
+                padding: 10px;
+            }
+            .child-icon {text-align: center;font-size: 117px;color:rgb(194, 194, 194);}
+            .grid-container3by4 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            padding: 10px;
+            height: 70%;
+            }
+            .grid-item {border: 8px solid rgb(255, 99, 132);padding: 10px;text-align: center;}
+            .LocationMap {position: relative;display: inline-block;}
+            .LocationMap i {position: absolute;font-size: 24px; color: yellow; }
+            .fa-map-marker {opacity: 0;transition: opacity 1s ease-in-out, transform 1s ease-in-out;}
+            .marker-shown {opacity: 1;transform: translateY(100px);}
+            .red-child-icon {color:rgb(255, 99, 132) !important;}
+            @keyframes slideInFromLeft {
+                0% {transform: translateX(-100%);opacity: 0;}
+                100% {transform: translateX(0);opacity: 1;}}
+            @keyframes slideInFromRight {
+                0% {transform: translateX(100%);opacity: 0;}
+                100% {transform: translateX(0);opacity: 1;}}
+            .casesInfo {animation: slideInFromLeft 1s ease-in-out;}
+            .VaccinProgress {animation: slideInFromRight 1s ease-in-out;opacity: 0;}
+            .VaccinProgress:not(.slideInFromRight) {animation: none;}
+            .VaccinProgress.slideInFromRight {transition: opacity 1s ease-in-out, transform 1s ease-in-out;opacity: 1;}
+            #LocationTable {animation: slideInFromRight 1s ease-in-out;opacity: 0;}
+            #LocationTable:not(.slideInFromRight) {animation: none;}
+            #LocationTable.slideInFromRight {transition: opacity 1s ease-in-out, transform 1s ease-in-out;opacity: 1;}
+          
+        </style>
+    </head>
+    <body>
+
+        <div id="fullpage">
+            <div class="section">
+                <div id="nav">
+                <ul>
+                    <li style="float:left; font-size: 17px;"><a class="active" >Covid-19 in Singapore</a></li>
+                    <li><a href="#">Vaccination Centres</a></li>
+                    <li><a href="#">Vaccination Progress</a></li>
+                    <li><a href="#">Cases</a></li>
+                  </ul>
+                </div>
+                <div class="grid-container">
+                    <div class="casesInfo">
+                        <H1>Cases</H1><br><br>
+                        <div class="grid-container-3">
+                            <div class="totalCases"><b>Total cases</b><br><h2>257510</h2></div>
+                            <div class="InHospital"><b>In hospital</b><br><h2>1365</h2></div>
+                            <div class="TotalDeaths"><b>Total deaths</b><br><h2>678</h2></div>
+                        </div><br>
+                    The number of Covid-19 cases in Singapore has grown to 257,510, with 2,079 new cases reported on 14 Dec.<br><br>
+                    Of these, 2,030 were reported in the community and 40 in the workers' domitories. The remaining nine cases were imported.<br><br>
+                    A further 2,275 patients were discharged, including 366 seniors aged above 60. A total of 238,909 cases have recovered to date.
+                    </div>
+                    <div class="CasesChart" style="padding-right: 50px;"><br><br>
+                        <b>Daily Cases</b>(past 2 weeks)<br><br><br>
+                        <div><canvas id="dailyCasesChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="vaccination-progress">
+                <div class="grid-container">
+                    <div class="VaccinInfo" style="padding-left: 120px;">
+                        <span style="font-size:30px;">9 out of 10 Singaporeans</span> <br>have been vaccinated<br>
+                        <div class="grid-container5by2">
+                            <div class="child-icon" id="child-icon-1"><i class="fa fa-child"></i></div>
+                            <div class="child-icon" id="child-icon-2"><i class="fa fa-child"></i></div>
+                            <div class="child-icon" id="child-icon-3"><i class="fa fa-child"></i></div>
+                            <div class="child-icon" id="child-icon-4"><i class="fa fa-child"></i></div>
+                            <div class="child-icon" id="child-icon-5"><i class="fa fa-child"></i></div>
+                            <div class="child-icon" id="child-icon-6"><i class="fa fa-child"></i></div>
+                            <div class="child-icon" id="child-icon-7"><i class="fa fa-child"></i></div>
+                            <div class="child-icon" id="child-icon-8"><i class="fa fa-child"></i></div>
+                            <div class="child-icon" id="child-icon-9"><i class="fa fa-child"></i></div>
+                            <div class="child-icon"><i class="fa fa-male" style="font-size:110px;color:  rgb(194, 194, 194);"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="VaccinProgress" style="padding-right: 100px;"><br><br>
+                        <H1>Vaccination Progress</H1><br><br>
+                        For every 100 people in Singapore, 88 have recived their first dose and 87 are fully vaccinacted as at 14 Dec.<br><br>
+                        In addition, the Health Ministry reported that as at 14 Dec, 96 percent of the eligible population (aged 12 years
+                            and above) have completed their full regime, or recived two doses of Covid-19 vaccines.<br><br>
+                        With new Covid-19 variants such as Omicorn surfacing, full vaccination will have to include booster shots as well.
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="vaccination-centres">
+                <div style="text-align: center;"><b style="font-size:38px;">Vaccination Centres</b><br>
+                    There are currently 12 vaccination centres in operation.</div><br>
+                <div class="grid-container" style="max-height: 70%;">
+                    <div class="LocationMap">
+                        <img src="singapore.svg" alt="Singapore"><br><br>
+
+                        <i id="BP" style="top: 125px; left: 480px;" class="fa fa-map-marker"></i>
+                        <i id="BBP" style="top: 110px; left: 230px;" class="fa fa-map-marker"></i>
+                        <i id="BMP" style="top: 210px; left: 320px;" class="fa fa-map-marker"></i>
+                        <i id="CCKP" style="top: 20px; left: 200px;" class="fa fa-map-marker"></i>
+                        <i id="CP" style="top: 150px; left: 217px;" class="fa fa-map-marker"></i>
+                        <i id="GP" style="top: 145px; left: 427px;" class="fa fa-map-marker"></i>
+                        <i id="HP" style="top: 45px; left: 400px;" class="fa fa-map-marker"></i>
+                        <i id="JP" style="top: 105px; left: 187px;" class="fa fa-map-marker"></i>
+                        <i id="MPP" style="top: 175px; left: 407px;" class="fa fa-map-marker"></i>
+                        <i id="OP" style="top: 170px; left: 335px;" class="fa fa-map-marker"></i>
+                        <i id="PRP" style="top: 70px; left: 495px;" class="fa fa-map-marker"></i>
+                        <i id="PP" style="top: 100px; left: 113px;" class="fa fa-map-marker"></i>
+                    </div>
+                 
+                    <div class="LocationInfo" style="padding: 0 70px 0 0; font-size: 14px;">
+                        <table id="LocationTable" class="display" width="100%"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+        <script>
+
+        $(document).ready(function () {
+            function animateChildIcons() {
+                for (let i = 1; i <= 9; i++) {
+                    setTimeout(function () {
+                        $(`#child-icon-${i}`).addClass('red-child-icon');
+                    }, i * 100); // 
+                }
+            }
+            
+        $(document).ready(function () {
+            $('#fullpage').fullpage({
+                scrollingSpeed: 1000,
+                sectionsColor: '#FFFFFF',
+                navigation: true,
+                navigationPosition: 'right',
+                afterLoad: function (origin, destination, direction) {
+                    $('.active').removeClass('active');
+                    $(destination.item).addClass('active');
+                    $(destination.item).find('.fa-map-marker').addClass('marker-shown');
+                if (destination.index === 1) {
+                animateChildIcons();
+                $('.VaccinProgress').addClass('slideInFromRight');
+            } else {
+                $('.VaccinProgress').removeClass('slideInFromRight');
+            }
+            if (destination.index === 2) {
+                $('#LocationTable').addClass('slideInFromRight');
+            } else {
+                $('#LocationTable').removeClass('slideInFromRight');
+            }
+                }
+            },
+            );
+        });
+    });
+
+        const labels = ["","","","","","",""];
+        const data = {
+            labels: labels,
+            datasets: [{
+            label: 'Daily Cases',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [253,195,237,182,323,279,143],
+            }]
+        };
+        const config = {type: 'bar',data: data};
+        const myChart = new Chart(document.getElementById('dailyCasesChart'),config);
+
+        var dataSet = [
+        ["Bedok Polyclinic", "11 Bedok North Street 1 Heartbeat@Bedok #02-01, #03-01, Singapore 469662", "Pfizer", "6343 1121",],
+        ["Bukit Batok Polyclinic", "50 Bukit Batok West Avenue 3, Singapore 659164", "Pfizer", "6343 1121",],
+        ["Bukit Merah Polyclinic", "162 Bukit Merah Central Level 4, Singapore 150163", "Moderna", "6343 1123",],
+        ["Choa Chu Kang Polyclinic", "2 Teck Whye Crescent, Singapore 688846", "Moderna", "6343 1124",],
+        ["Clementi Polyclinic", "451 Clementi Avenue 3, Singapore 120451", "Pfizer", "6343 1121",],
+        ["Geylang Polyclinic", "21 Geylang East Central, Singapore 389707", "Pfizer", "6343 1126",],
+        ["Hougang Polyclinic", "89 Hougang Avenue 4, Singapore 538829", "Pfizer", "6765 1121",],
+        ["Jurong Polyclinic", "190 Jurong East Avenue 1, Singapore 609788", "Pfizer", "6765 1122",],
+        ["Marine Parade Polyclinic", "80 Marine Parade Central, Singapore 440080", "Pfizer", "6765 1123",],
+        ["Outram Polyclinic", "3 Second Hospital Avenue, #02-00 Health Promotion Board Building, Singapore 168937", "Comirnaty", "6765 1124",],
+        ["Pasir Ris Polyclinic", "1 Pasir Ris Drive 4, Singapore 519457", "Comirnaty", "6765 1125",],
+        ["Pioneer Polyclinic", "26 Jurong West Street 61, Singapore 648201", "Moderna", "6765 1126",],
+        ];
+        $(document).ready(function () {
+            $('#LocationTable').DataTable({
+                data: dataSet,
+                columns: [{ title: "Name" },{ title: "Address" },{ title: "Vaccine Type" },{ title: "Phone" }],
+            paging: false,   
+            searching: false, 
+            info: false,    
+            scrollY: '310px',  
+            scrollCollapse: true,
+            fixedHeader: true  
+            });
+        });
+
+        tippy('#BP', {content: ['Bedok Polyclinic','11 Bedok North Street 1 Heartbeat@Bedok #02-01, #03-01, Singapore 469662'].join('<br>'),allowHTML: true});
+        tippy('#BBP', {content: ['Bukit Batok Polyclinic','50 Bukit Batok West Avenue 3, Singapore 659164'].join('<br>'),allowHTML: true});
+        tippy('#BMP', {content: ['Bukit Merah Polyclinic','162 Bukit Merah Central Level 4, Singapore 150163'].join('<br>'),allowHTML: true});
+        tippy('#CCKP', {content: ['Choa Chu Kang Polyclinic','2 Teck Whye Crescent, Singapore 688846'].join('<br>'),allowHTML: true});
+        tippy('#CP', {content: ['Clementi Polyclinic','451 Clementi Avenue 3, Singapore 120451'].join('<br>'),allowHTML: true});
+        tippy('#GP', {content: ["Geylang Polyclinic", "21 Geylang East Central, Singapore 389707"].join('<br>'),allowHTML: true});
+        tippy('#HP', {content: ["Hougang Polyclinic", "89 Hougang Avenue 4, Singapore 538829"].join('<br>'),allowHTML: true});
+        tippy('#JP', {content: ["Jurong Polyclinic", "190 Jurong East Avenue 1, Singapore 609788"].join('<br>'),allowHTML: true});
+        tippy('#MPP', {content: ["Marine Parade Polyclinic", "80 Marine Parade Central, Singapore 440080"].join('<br>'),allowHTML: true});
+        tippy('#OP', {content: ["Outram Polyclinic", "3 Second Hospital Avenue, #02-00 Health Promotion Board Building, Singapore 168937"].join('<br>'),allowHTML: true});
+        tippy('#PRP', {content: ["Pasir Ris Polyclinic", "1 Pasir Ris Drive 4, Singapore 519457"].join('<br>'),allowHTML: true});
+        tippy('#PP', {content: ["Pioneer Polyclinic", "26 Jurong West Street 61, Singapore 648201"].join('<br>'),allowHTML: true});
+        </script>
+    </body>
+</html>
