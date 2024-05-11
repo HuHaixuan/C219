@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>School Library</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+        <script src="script.js" defer></script>
+    
+    </head>
+    <body>
+
+        <div id="fullpage">
+            <div class="section" id="home">
+                <nav class="navbar">
+                    <div class="logo">
+                        <img src="img/logo.svg" alt="Logo">
+                    </div>
+                    <div class="navbar-links">
+                        <a href="javascript:void(0);" onclick="moveToSection(1)"><i class="fa fa-home"></i>Home</a>
+                        <a href="javascript:void(0);" onclick="moveToSection(2)"><i class="fa fa-bar-chart"></i>Stats</a>
+                        <a href="javascript:void(0);" onclick="moveToSection(3)"><i class="fa fa-table"></i>Inventory</a>
+                    </div>
+                </nav>
+                <div class="topnav">
+                    <div class="logo">
+                        <img src="img/logo.svg" alt="Logo">
+                    </div>
+                    <div id="myLinks">
+                        <a href="javascript:void(0);" onclick="moveToSection(1)"><i class="fa fa-home"></i>Home</a>
+                        <a href="javascript:void(0);" onclick="moveToSection(2)"><i class="fa fa-bar-chart"></i>Stats</a>
+                        <a href="javascript:void(0);" onclick="moveToSection(3)"><i class="fa fa-table"></i>Inventory</a>
+                    </div>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                      <i class="fa fa-bars"></i>
+                    </a>
+                  </div>
+            
+                
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-bar" placeholder="Search for books...">
+                    <button type="button" class="search-button" onclick="searchBooks()">Search<i class="fa fa-search"></i></button>
+                </div>
+                <div id="noResultMessage" style="display: none;">No result found</div>
+
+                <div class="w3-container">
+                    <div class="card-container" data-bs-toggle="tooltip" title="Click to read details">
+                        <div class="card" id="TheSteep&thornyWay">
+                            <img src="img/TheSteep&thornyWay.jpg" alt="The Steep & thorny Way">
+                            <div class="container">
+                                <h5><b>The steep & thorny way</b></h5>
+                                <p>by Cat Winters</p>
+                            </div>
+                            <button class="ReserveButton">Reserve</button>
+                        </div>
+                        
+                    </div>
+
+                    <div id="TheSteep&thornyWayModal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                              <span class="close">&times;</span>
+                              <h4>The steep & thorny way</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>"A sixteen-year-old biracial girl in rural Oregon in the 1920s searches for the truth 
+                                about her father's death while avoiding trouble from the Ku Klux Klan in this YA historical 
+                                novel inspired by Shakespeare's 'Hamlet'"</p>
+                              <p><b>Author:</b> Cat Winters<br>
+                                <b>Language:</b> English<br>
+                                <b>Publish Date:</b> 2016<br> <br>
+                                <b>Genre:</b> Mystery, Young Adult, Paranormal<br>
+                                <b>ISBN:</b> 978-1-234567-89-0
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <span style="color: black;font-size: 18px;">4.0</span>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                    <div class="card-container" data-bs-toggle="tooltip" title="Click to read details">
+                        <div class="card" id="ControlYourMindandMasterYourFeelings">
+                            <img src="img/ControlYourMindandMasterYourFeelings.jpg" alt="The Steep & thorny Way">
+                            <div class="container">
+                                <h5><b>Control Your Mind and Master Your Feelings</b></h5>
+                                <p>by Eric Robertson</p>
+                            </div>
+                            <button class="ReserveButton">Reserve</button>
+                        </div>
+                    </div>
+
+                    <div id="ControlYourMindandMasterYourFeelingsModal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                              <span class="close">&times;</span>
+                              <h4>Control Your Mind and Master Your Feelings</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>We oftentimes look towards the outside world to find the roots of our problems. However, most of the times, we should be looking inwards. 
+                                Our mind and our emotions determine our state of being in the present moment. If those aspects are left unchecked, we can get easily overwhelmed and are left feeling unfulfilled every single day.<br>
+                                This book contains two manuscripts designed to help you discover the best and most efficient way to control your thoughts and master your feelings.<br>
+                                In the first part of the bundle called Breaking Overthinking, you will discover:<br>
+                                How overthinking can be detrimental to your social life.<br>
+                                The hidden dangers of overthinking and what can happen to you if it’s left untreated.<br>
+                                How to declutter your mind from all the noise of the modern world.<br>
+                                How overthinking affects your body, your energy levels, and your everyday mood.<br>
+                                How your surroundings affect your state of mind, and what you NEED to do in order to break out of that state.<br>
+                                Bad habits we perform every day and don’t even realize are destroying our sanity (and how to overcome them properly).<br>
+                                How to cut out toxic people from your life, which cloud your judgment and make you feel miserable.<br>
+                                </p>
+                              <p><b>Author:</b> Eric Robertson<br>
+                                <b>Language:</b> English<br>
+                                <b>Publish Date:</b> 2018<br> <br>
+                                <b>Genre:</b> Non-Fiction<br>
+                                <b>ISBN:</b> 578-1-6644223-99-0
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <span style="color: black;font-size: 18px;">3.5</span>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                    </div>
+                  
+                        <div class="card-container" data-bs-toggle="tooltip" title="Click to read details">
+                            <div class="card" id="TheThreeLittleAstronauts">
+                                <img src="img/TheThreeLittleAstronauts.jpg" alt="The Steep & thorny Way">
+                                <div class="container">
+                                    <h5><b>The three little astronauts</b></h5>
+                                    <p>by Georgie Adams</p>
+                                </div>
+                                <button class="ReserveButton">Reserve</button>
+                            </div>
+                        </div>
+
+                        <div id="TheThreeLittleAstronautsModal" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                  <span class="close">&times;</span>
+                                  <h4>The three little astronauts</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Meet the Three Little Astronauts - Rikki, Jenna and Leo, and join them on an 
+                                    out of this world adventure where they take a wrong turn, meet a space dinosaur 
+                                    and come face to face with evil villian Zarl!</p>
+                                  <p><b>Author:</b> Georgie Adams<br>
+                                    <b>Language:</b> English<br>
+                                    <b>Publish Date:</b> 2016<br> <br>
+                                    <b>Genre:</b> Childrens, Fiction<br>
+                                    <b>ISBN:</b> 234-8-9876543-44-6
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <span style="color: black;font-size: 18px;">4.5</span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                  
+                        <div class="card-container" data-bs-toggle="tooltip" title="Click to read details">
+                            <div class="card" id="Charlotte'sWeb">
+                                <img src="img/Charlotte'sWeb.jpg" alt="The Steep & thorny Way">
+                                <div class="container">
+                                    <h5><b>Charlotte's Web</b></h5>
+                                    <p>By E. B. White</p>
+                                </div>
+                                <button class="ReserveButton">Reserve</button>
+                            </div>
+                        </div>
+
+                        <div id="Charlotte'sWebModal" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                  <span class="close">&times;</span>
+                                  <h4>Charlotte's Web</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Wilbur was lovingly raised by a girl named Fern. But now he's a barn pig. 
+                                    He's bored and lonely - until he meets Charlotte, the beautiful grey spider 
+                                    who also lives in the barn.<br>
+                                    Charlotte thinks of a wonderful way to save Wilbur from a pig's unhappy fate. 
+                                    Her clever plan will delight you, in this famous story<br>
+                                    Charlotte's Web<br>
+                                    --back cover
+                                    </p>
+                                  <p><b>Author:</b> E. B. White<br>
+                                    <b>Language:</b> English<br>
+                                    <b>Publish Date:</b> 1952<br> <br>
+                                    <b>Genre:</b> Young Adult, Fiction<br>
+                                    <b>ISBN:</b> 456-7-8901234-34-2
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <span style="color: black;font-size: 18px;">5.0</span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-container" data-bs-toggle="tooltip" title="Click to read details">
+                            <div class="card" id="Divergent">
+                                <img src="img/Divergent.jpg" alt="The Steep & thorny Way">
+                                <div class="container">
+                                    <h5><b>Divergent</b></h5>
+                                    <p>by Veronica Roth</p>
+                                </div>
+                                <button class="ReserveButton">Reserve</button>
+                            </div>
+                        </div>
+
+                        <div id="DivergentModal" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                  <span class="close">&times;</span>
+                                  <h4>Divergent</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>The main character, Beatrice Prior, is a sixteen-year-old girl who chooses to 
+                                    leave her selfless faction, Abnegation, and join the brave faction, Dauntless. 
+                                    She discovers that she is a Divergent, someone who does not fit into any faction,
+                                     and faces danger from a conspiracy that threatens to destroy the society.
+                                    </p>
+                                  <p><b>Author:</b> Veronica Roth<br>
+                                    <b>Language:</b> English<br>
+                                    <b>Publish Date:</b> 2014<br> <br>
+                                    <b>Genre:</b> Romance, Fiction<br>
+                                    <b>ISBN:</b> 453-7-11223234-32-8
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <span style="color: black;font-size: 18px;">4.0</span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-container" data-bs-toggle="tooltip" title="Click to read details">
+                            <div class="card" id="EncyclopediaBrownBoyDetective">
+                                <img src="img/EncyclopediaBrownBoyDetective.jpg" alt="The Steep & thorny Way">
+                                <div class="container">
+                                    <h5><b>Encyclopedia Brown, Boy Detective</b></h5>
+                                    <p>by Donald J. Sobol</p>
+                                </div>
+                                <button class="ReserveButton">Reserve</button>
+                            </div>
+                        </div>
+
+                        <div id="EncyclopediaBrownBoyDetectiveModal" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                  <span class="close">&times;</span>
+                                  <h4>Encyclopedia Brown, Boy Detective</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Fifth-grader "Encyclopedia" Leroy Brown solves ten mysteries 
+                                    and, by putting the solutions at the back of the book, challenges the reader to do the same.</p>
+                                  <p><b>Author:</b> Donald J. Sobol<br>
+                                    <b>Language:</b> English<br>
+                                    <b>Publish Date:</b> 2007<br> <br>
+                                    <b>Genre:</b> Mystery, Young Adult, Short Stories<br>
+                                    <b>ISBN:</b> 978-1-1122334-56-7
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <span style="color: black;font-size: 18px;">2.5</span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-container" data-bs-toggle="tooltip" title="Click to read details">
+                            <div class="card" id="JerryHotterandtheAdventuresatFishmarts">
+                                <img src="img/JerryHotterandtheAdventuresatFishmarts.jpg" alt="The Steep & thorny Way">
+                                <div class="container">
+                                    <h5><b>Jerry Hotter and the Adventures at Fishmarts
+                                    </b></h5>
+                                    <p>by Samhita Joshi</p>
+                                </div>
+                                <button class="ReserveButton">Reserve</button>
+                            </div>
+                        </div>
+
+                        <div id="JerryHotterandtheAdventuresatFishmartsModal" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                  <span class="close">&times;</span>
+                                  <h4>Jerry Hotter and the Adventures at Fishmarts</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Something’s always fishy at Fishmarts.<br>
+
+                                    When Jerry, the protagonist is forced to receive tuition at a place he never
+                                     knew existed—people revolt! First, his parents revolted. Second, the ones they
+                                      revolted against revolted! Which means, Third, Jerry is going to be the one to 
+                                      revolt this time—against all those who revolted against his family! It's all
+                                       about revolutions—if you think deeply. All aside, find out the reason WHY in this 
+                                       (the only) edition of JHATAAF.<br><br>
+                                    
+                                    Spoilers Alert: It's deeper than you think!
+                                    </p>
+                                  <p><b>Author:</b> Samhita Joshi<br>
+                                    <b>Language:</b> English<br>
+                                    <b>Publish Date:</b> 2021<br> <br>
+                                    <b>Genre:</b> Mystery, Young Adult<br>
+                                    <b>ISBN:</b> 234-1-9988776-45-3
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <span style="color: black;font-size: 18px;">3.5</span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-container" data-bs-toggle="tooltip" title="Click to read details">
+                            <div class="card" id="NoPlaceForAWoman">
+                                <img src="img/NoPlaceForAWoman.jpg" alt="The Steep & thorny Way">
+                                <div class="container">
+                                    <h5><b>No place for a woman</b></h5>
+                                    <p>by Valerie Wood</p>
+                                </div>
+                                <button class="ReserveButton">Reserve</button>
+                            </div>
+                        </div>
+                        <div id="NoPlaceForAWomanModal" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                  <span class="close">&times;</span>
+                                  <h4>No place for a woman</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>When Lucy's parents are killed in a train crash, her kindly uncle steps in to look 
+                                    after the little girl to the initial apprehension of his wife and her son. However, 
+                                    Lucy's sweet, spirited charm slowly wins over her new family, and as she overcomes the 
+                                    trauma of her childhood, she grows up inspired to become a doctor, just like her father.
+                                     But studying medicine in London takes Lucy far from her home in Hull and the people 
+                                     she loves, and she has to battle to be accepted in a man's world. With the dark clouds
+                                      of the First World War gathering on the horizon, an even greater challenge approaches.
+                                       Can a woman find her place on the front line of battle? Will Lucy be able to follow her
+                                        dreams and find love in a world shattered by war?
+                                    </p>
+                                  <p><b>Author:</b> Valerie Wood<br>
+                                    <b>Language:</b> English<br>
+                                    <b>Publish Date:</b> 1998<br> <br>
+                                    <b>Genre:</b> Romance, Fiction<br>
+                                    <b>ISBN:</b> 678-1-14578326-25-0
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <span style="color: black;font-size: 18px;">4.5</span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="section" id="stats">
+                <div>
+                    <div class="intro-container">
+                        <div class="introMsg-container">
+                            <H4>Welcome to School Library!</H4>
+                            Discover a world of knowledge and adventure. We have books under a few categories for your reading pleasure.
+                        </div>
+                        <div class="introImg-container">
+                            <img src="img/introImg1.png" alt="book" id="introImg">
+                        </div>
+                    </div>
+                    <div id="chart-container">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="inventory">
+                <div class="intro-container">
+                    <div class="introMsg-container">
+                        <H4>Welcome to School Library!</H4>
+                        Discover a world of knowledge and adventure. We have books under a few categories for your reading pleasure.
+                    </div>
+                    <div class="introImg-container">
+                        <img src="img/introImg1.png" alt="book" id="introImg">
+                    </div>
+                </div>
+                <div id="table-container">
+                    <table id="bookTable" class="display responsive" ></table>
+                </div>
+                <footer>
+                    <div class="footer-container">
+                        <div class="logo">
+                            <img src="img/logo.svg" alt="Logo"><br><br>
+                            Copyright © 2024 SchoolLibrary.<br>All rights reserved
+                        </div>
+                    </div>
+
+                    <div class="footer-container"><br>
+                        <h6>Contact Us</h6>
+                        <div class="contact">
+                        <i class="fa fa-envelope"></i>schoolLibrary@gmail.com<br>
+                        <i class="fa fa-phone"></i>(555) 123-4567<br><br>
+                        <i class="fa fa-map-marker"></i>Woodlands Street 123 #11-222
+                        </div>
+                    </div>
+                  
+                    <div class="footer-container"><br>
+                        <h6>Follow Us</h6>
+                        <ul class="footer-link">
+                          <li><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
+                          <li><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
+                          <li><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
+                        </ul>
+                      </div>
+                  
+                    <div class="footer-container"><br>
+                      <h6>Site Map</h6>
+                      <ul class="footer-link">
+                        <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+                        <li><a href="#"><i class="fa fa-bar-chart"></i>Stats</a></li>
+                        <li><a href="#"><i class="fa fa-table"></i>Inventory</a></li>
+                      </ul>
+                    </div>
+                  </footer>
+            </div>
+
+    </body>
+</html>

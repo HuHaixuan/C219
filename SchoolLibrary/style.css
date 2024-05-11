@@ -1,0 +1,173 @@
+.navbar{
+    background-color: #50A060;
+    padding: 1vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img{height: 50px;}
+.navbar-links a i{margin-right: 5px;}
+.navbar-links a{
+    color: white; 
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+}
+.navbar-links a:hover {color: black;}
+.topnav{display: none;}
+.section{height: 100vh;display: flex;justify-content: center;}
+.w3-container{display: flex;flex-wrap: wrap;padding:0 5vw 0 5vw;}
+.card-container{padding: 1vw;width: 20%;}
+.card{transition: 0.3s;min-height: 475px;}
+.card:hover{box-shadow: 0 12px 16px 0 rgba(0,0,0,0.2);}
+.container{padding: 2px 16px;}
+.search-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.search-bar{
+  width: 50%;
+  height: 40px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-right: 10px;
+}
+.search-button{
+  background-color: #50A060;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.search-button i{margin-left: 3px;}
+#noResultMessage{height:430px;padding: 10px 0 0 50px;}
+.ReserveButton{
+  background-color: #50A060;
+  border: none;
+  height: 45px;
+  color: white;
+  margin-top: auto;
+}
+#chart-container{margin: 0 30px 0 30px;height: 75vh;}
+.intro-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin:15px 50px 15px 50px;
+  background-color: #50A060;height: 20vh;
+  position: relative;
+}
+
+.introMsg-container{
+  padding: 1vw 1vw 1vw 4vw;
+  width: 64%;
+  color: white;
+  font-size: 14px;
+}
+.introImg-container{
+  width: 30%;
+  text-align: right;
+}
+#introImg{height: 140px;width: 200px;margin-top: -10px;}
+#table-container{margin: 0 40px 30px 40px;}
+.bookTable{margin: 4vh;}
+#bookTable tbody tr{height: 20px;}
+
+footer{
+  background-color: #50A060;
+  display: flex;
+  flex-wrap: wrap;
+  padding:2vw 5vw 0 2vw;
+}
+.footer-container{width: 25%;color: white;font-size: 14px;}
+.footer-container a{text-decoration: none;color:white;}
+.footer-container a:hover{color: black;}
+.contact i{margin-left: 20px;margin-right: 8px;}
+.footer-link{list-style: none;}
+.footer-link a i {margin-right: 8px;}
+.logo{font-size: 12px;}
+
+.reserved{
+  background-color: grey;
+  color: white;
+  cursor: not-allowed;
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content{
+  background-color: #fefefe;
+  margin: 5% auto;
+  border: 1px solid #888;
+  width: 55%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.modal-header{background-color: #50A060;color: white;}
+.modal-body{padding: 20px;font-size: 14px;}
+.modal-footer{font-size: 30px;color:rgb(255, 207, 84);}
+.modal-footer i{margin-left:5px;}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 840px) {
+  .card-container {width: 50%;padding: 3vw;}
+  .card {transition: 0.3s;min-height: 540px;}
+  .introImg-container {width: 29%; margin:0 0 3vh 5vh;}
+  #introImg {height: 120px;width: 170px;margin-top: 0;}
+  .footer-container{width: 50%;color: white;font-size: 14px;margin-top: 1vw;}
+}
+@media screen and (max-width: 580px) {
+  .navbar{display: none;}
+  .topnav {
+    padding: 1vw;
+    overflow: hidden;
+    background-color: #50A060;
+    position: relative;
+    display: block;
+  }
+  .topnav #myLinks {display: none;text-align: center;}
+  #myLinks a i {margin-right: 5px;}
+  .topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+
+  .topnav a.icon {
+    background: #50A060;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav a:hover{color: black;}
+  .card-container {width: 100%;padding:2vw 10vw;}
+  .introMsg-container {padding: 1vw;width: 100%;}
+  .introImg-container{display: none;margin:20px;}
+}
